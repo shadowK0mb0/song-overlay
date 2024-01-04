@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Spotify Widget</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{{ url_for('static',filename='scripts/script.js') }}"></script>
+  </head>
+  <style>
+    .spotify-widget {
+        display: flex;
+        background-color: #f403c86d;
+        color: white;
+        border-radius: 10px;
+        width: 400px;
+        height: 100px;
+        box-shadow: 0 0 10px rgba(253, 253, 253, 0.888);
+        background: linear-gradient(to right, #f403c84d, #f403c8b4), url("{{ image }}");
+        background-size: cover, cover;
+        background-position: center, center;
+    }
+  </style>
+  <body>
+    {% if song_playing %}
+    <div class="spotify-widget">
+        <div class="float-child">
+            <img class="album-cover" src="{{ image }}">
+        </div>
+        <div class="float-child" id="song-details">
+          <div class="song-info">
+              <h2 class="song-title overflow">{{ title }}</h2>
+              <div class="artist-div">
+                <p class="song-artist overflow">{{ artist }}</p>
+              </div>
+              <!-- <div class="song-progress">
+                  <progress value="{{ progress }}" max="100"></progress>
+              </div> -->
+          </div>
+          <!-- <img id="album-as-background" src="https://i.scdn.co/image/ab67616d0000b2734fc10055e08764f6b6da7e6a"> -->
+        </div>
+    </div>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "song_overlay"
+version = "0.1.0"
+description = "A package for overlaying songs"
+authors = [
+    {name = "Gireesh", email = "type591234@gmail.com"},
+]
+requires-python = ">=3.8"
+
+[tool.setuptools.packages.find]
+include = ["song_overlay"]
+exclude = ["template*"]
+
+[options.extras_require]
+test = ["pytest"]
+
+[options.install_requires]
+flask = "1.1.2"
+pydantic = "2.5.3"
+httpx = "0.26.0"
+python-dotenv = "1.0.0"
+
+[tool.setuptools]
+py-modules = []
